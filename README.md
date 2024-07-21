@@ -46,15 +46,22 @@
 Request
 | 파라메터 | 타입 | 필수여부 | 설명 |
 |--------|----------| ----------|----------|
-| keyword|String    |O          |맛집검색에 필요한 키워드|
-| sort|String    |X          |리뷰 조회조건(정확도, 리뷰개수)|
+| searchWord|String    |O          |맛집검색에 필요한 키워드|
+| sortType|String    |X          |리뷰 조회조건(정확도, 리뷰개수)|
 
 Response
 | 필드 | 타입 | 필수여부 | 설명 |
 |--------|----------------|-----|------------------|
-| title  |String    |필수  |업체명|
-| address |String   |필수  |주소|
-| telephone |String |필수  |전화번호|
+| title  |String    |필수  |기관의 이름|
+| link  |String    |필수  |기관의 상세 정보 URL|
+| category |String   |필수  |기관의 분류 정보|
+| description |String |필수  |기관에 대한 설명|
+| telephone |String |선택  |전화번호|
+| address |String |필수  |기관명의 지번 주소|
+| roadAddress |String |필수  |기관명의 도로명 주소|
+| mapx |String |필수  |기관이 위치한 장소의 x 좌표|
+| mapy |String |필수  |기관이 위치한 장소의 y 좌표|
+
 
 
 ### [인기키워드 API]
