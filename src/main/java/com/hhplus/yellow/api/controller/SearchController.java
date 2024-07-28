@@ -2,6 +2,7 @@ package com.hhplus.yellow.api.controller;
 
 import com.hhplus.yellow.api.controller.dto.response.SearchResponse;
 import com.hhplus.yellow.api.usecase.SearchRestaurantUseCase;
+import com.hhplus.yellow.domain.search.model.SearchLog;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +21,12 @@ public class SearchController {
   private final SearchRestaurantUseCase searchRestaurantUseCase;
 
   @GetMapping("/search")
-  public ResponseEntity<SearchResponse> searchRestaurant(@RequestParam String searchWord) {
+  public ResponseEntity<SearchResponse> searchRestaurant(@RequestParam String searchWord,
+                                                         @RequestParam String sortType) {
 
-    searchRestaurantUseCase.searchRestaurant(searchWord);
+    SearchResponse response = searchRestaurantUseCase.searchRestaurant(searchWord, sortType);
 
-    return ResponseEntity.ok().body(null);
+    return ResponseEntity.ok().body(response);
   }
 
 }
